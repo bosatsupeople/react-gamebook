@@ -31,46 +31,43 @@ function App() {
   const [started, setStarted] = useState(false);
   const [scene, setScene] = useState('start');
   const [gameOverReason, setGameOverReason] = useState(null);
-  const bgmRef = useRef(new Audio());
+
+  // const bgmRef = useRef(new Audio());
 
   const startGame = () => {
-    const bgm = bgmRef.current;
-    bgm.src = '/assets/music/bgm-comn.mp3';
-    bgm.volume = 0.4; // 小さめに設定
-    bgm.loop = true;
-    bgm.play().catch(() => {
-      alert("音声再生がブロックされました。");
-    });
+    // const bgm = bgmRef.current;
+    // bgm.src = '/assets/music/bgm-comn.mp3';
+    // bgm.volume = 0.4;
+    // bgm.loop = true;
+    // bgm.play().catch(() => {
+    //   alert("音声再生がブロックされました。");
+    // });
+
     setStarted(true);
     setScene('start');
   };
 
   const restartGame = () => {
-    // BGM を完全に止めてリセット
-    const bgm = bgmRef.current;
-    bgm.pause();
-    bgm.currentTime = 0;
-    bgm.src = ''; // 明示的にソースを切る
-  
-    // ゲーム状態をすべてリセット
+    // const bgm = bgmRef.current;
+    // bgm.pause();
+    // bgm.currentTime = 0;
+    // bgm.src = '';
+
     setGameOverReason(null);
     setScene('start');
-    setStarted(false); // スタート画面へ戻る
-  
+    setStarted(false);
   };
-   
-  useEffect(() => {
-    const bgm = bgmRef.current;
-    let src = '/assets/music/bgm-comn.mp3';
-    //if (scene === 'goal') src = 'bgm-goal.mp3';
-    if (scene === 'gameover') src = '';
 
-    if (started && bgm.src !== location.origin + src) {
-      bgm.pause();
-      bgm.src = src;
-      bgm.load();
-      bgm.play().catch(() => {});
-    }
+  useEffect(() => {
+    // const bgm = bgmRef.current;
+    // let src = '/assets/music/bgm-comn.mp3';
+    // if (scene === 'gameover') src = '';
+    // if (started && bgm.src !== location.origin + src) {
+    //   bgm.pause();
+    //   bgm.src = src;
+    //   bgm.load();
+    //   bgm.play().catch(() => {});
+    // }
   }, [scene]);
 
   const handleChoice = (next, reason = null) => {
