@@ -1,0 +1,242 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+#root {
+  width: 100%;
+}
+
+/* よこ画面 */
+@media (orientation: landscape) {
+  #root {
+    margin-inline: auto;
+    max-width: 640px;
+    min-height: 100vh;
+    position: relative;
+    width: auto;
+  }
+
+  .start-screen {
+    aspect-ratio: 9 / 16;
+  }
+
+  .screen {
+    aspect-ratio: 9 / 16;
+  }
+}
+
+/* 動画 */
+#root video {
+  height: 100vh;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* 開始時スクリーン */
+.start-screen {
+  align-items: center;
+  background-color: #fbe3ee;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  height: 100vh;
+  justify-content: center;
+  margin-inline: auto;
+}
+
+/* スクリーン */
+.screen {
+  background-color: #000;
+  height: 100vh;
+  margin-inline: auto;
+  position: relative;
+}
+
+/* ローディング画面 */
+.loading {
+  background-color: #fbe3ee;
+  display: grid;
+  gap: 20px;
+  height: 100vh;
+  place-content: center;
+}
+
+.loader {
+  aspect-ratio: 1;
+  background:
+    radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,
+    radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
+    linear-gradient(to bottom left, currentColor 42%, #0000 43%) bottom left,
+    linear-gradient(to bottom right, currentColor 42%, #0000 43%) bottom right;
+  background-repeat: no-repeat;
+  background-size: 50% 50%;
+  color: #dc1818;
+  margin-inline: auto;
+  position: relative;
+  width: 50px;
+}
+
+.loader:after {
+  animation: l3 1s infinite;
+  background: inherit;
+  content: "";
+  inset: 0;
+  opacity: 0.4;
+  position: absolute;
+}
+
+@keyframes l3 {
+  to {
+    opacity: 0;
+    transform: scale(1.8);
+  }
+}
+
+.loading-text {
+  color: #935030;
+  font-weight: 700;
+  /* 以下を必要に応じて有効に：
+  -webkit-text-stroke: 2px #ffffff;
+  text-stroke: 2px #ffffff;
+  paint-order: stroke;
+  */
+}
+
+/* コモンボタン */
+.button-comn {
+  border-radius: 50vh;
+  color: #fff;
+  display: block;
+  font-weight: 700;
+  margin-inline: auto;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.button-comn:hover {
+  box-shadow: none;
+  transform: translate(0px, 8px);
+}
+
+.button-comn-start {
+  background-color: #e67087;
+  border: 1px solid #c4524d;
+  box-shadow: 0px 8px 0 #c4524d;
+  padding: 20px 40px;
+  width: 90%;
+}
+
+.button-comn-option-wrap {
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  left: 0;
+  padding-bottom: 80px;
+  position: absolute;
+  width: 100%;
+}
+
+.button-comn-option {
+  color: #fff;
+  font-weight: 700;
+  padding: 16px 40px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 80%;
+}
+
+.button-comn-option:hover {
+  box-shadow: 0px 12px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  opacity: 0.95;
+  transform: translateY(-4px);
+}
+
+.button-comn-option:nth-child(1) {
+  background-color: #f591b0;
+  border: 1px solid #d86d84;
+  box-shadow: 0px 8px 0 #d86d84;
+}
+
+.button-comn-option:nth-child(2) {
+  background-color: #6f96ec;
+  border: 1px solid #526ccc;
+  box-shadow: 0px 8px 0 #526ccc;
+}
+
+.button-comn-end {
+  background-color: #4a70e3;
+  border: 1px solid #4d4fc4;
+  bottom: 80px;
+  box-shadow: 0px 8px 0 #4d4fc4;
+  left: 0;
+  margin-inline: auto;
+  position: absolute;
+  right: 0;
+  width: 80%;
+}
