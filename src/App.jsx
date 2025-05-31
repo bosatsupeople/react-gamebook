@@ -81,7 +81,7 @@ function App() {
   if (!started) {
     return (
       <div className='start-screen'>
-        <h1>ゲームブック</h1>
+        <h1>ケイ子のドキドキ！アイドル人生</h1>
         <button className='button-comn button-comn-start' onClick={startGame}>スタート</button>
         <p>※ボタンを押すと音声が再生されます</p>
       </div>
