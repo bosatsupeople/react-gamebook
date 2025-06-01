@@ -78,7 +78,7 @@ function App() {
   if (!started) {
     return (
       <div className='start-screen'>
-        <h1>ケイ子のドキドキ！アイドル人生</h1>
+        <h1 className='game-title'><img className='game-logo' src="/assets/images/logo-game-title.png" alt="ケイ子のドキドキ！アイドル人生" /></h1>
         <button className='button-comn button-comn-start' onClick={startGame}>スタート</button>
         <p>※ボタンを押すと音声が再生されます</p>
       </div>
