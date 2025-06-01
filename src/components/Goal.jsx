@@ -12,7 +12,7 @@ function Goal({ restart }) {
       />
 
       {videoEnded && (
-        <button className='button-comn button-comn-end' onClick={restart}>▶ 最初に戻る</button>
+        <button className='button-comn button-comn-end' onClick={restart}>最初に戻る</button>
       )}
     </div>
   );
